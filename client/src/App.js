@@ -1,8 +1,9 @@
-import React from 'react';
-import CssBaseline from '@material-ui/core/CssBaseline';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import About from './components/About';
-import Navbar from './components/Navbar';
+import CssBaseline from "@material-ui/core/CssBaseline";
+import React from "react";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import About from "./components/About";
+import Navbar from "./components/Navbar";
+import Search from "./components/Search";
 
 function App() {
   return (
@@ -14,11 +15,14 @@ function App() {
             <Navbar />
           </div>
           <Switch>
-           <div className="container">
-             <Route exact path="/about">
+            <div className="container">
+              <Route exact path="/">
+                <Search />
+              </Route>
+              <Route exact path="/about">
                 <About />
-             </Route>
-           </div>
+              </Route>
+            </div>
           </Switch>
         </>
       </Router>

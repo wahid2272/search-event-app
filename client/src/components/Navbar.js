@@ -1,23 +1,24 @@
-import React from "react";
-import { withRouter } from "react-router-dom";
 //Material UI
 import AppBar from "@material-ui/core/AppBar";
+import Button from "@material-ui/core/Button";
 import IconButton from "@material-ui/core/IconButton";
 import Menu from "@material-ui/core/Menu";
-import Button from "@material-ui/core/Button";
 import MenuItem from "@material-ui/core/MenuItem";
 import { makeStyles, useTheme } from "@material-ui/core/styles";
+import SvgIcon from "@material-ui/core/SvgIcon";
 import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
-import SvgIcon from '@material-ui/core/SvgIcon';
 import MenuIcon from "@material-ui/icons/Menu";
+import React from "react";
+import { withRouter } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
-    '& > *': {
-      margin: theme.spacing(1),}
+    "& > *": {
+      margin: theme.spacing(1),
+    },
   },
   menuButton: {
     marginRight: theme.spacing(2),
@@ -29,8 +30,8 @@ const useStyles = makeStyles((theme) => ({
     fontSize: 25,
   },
   title: {
-    flexGrow: 1
-  }
+    flexGrow: 1,
+  },
 }));
 
 function HomeIcon(props) {
@@ -58,62 +59,75 @@ const Naavbar = (props) => {
     setAnchorEl(null);
   };
 
-  const handleButtonClick = pageURL => {
+  const handleButtonClick = (pageURL) => {
     history.push(pageURL);
-  }
+  };
 
   return (
-      <AppBar position="static">
-        <Toolbar>
-          <IconButton color="inherit">
-            <HomeIcon className={classes.iconSize} onClick={() => handleMenuClick("/")}/>
-          </IconButton>
-          <Typography variant="h4" color="inherit" className={classes.title}>
-            Home
-          </Typography>
-          <div>
-            {isMobile ? (
-              <>
-                <IconButton
-                  edge="start"
-                  className={classes.menuButton}
-                  color="inherit"
-                  aria-label="menu"
-                  onClick={handleMenu}
-                >
-                  <MenuIcon />
-                </IconButton>
+    <AppBar position="static">
+      <Toolbar>
+        <IconButton color="inherit">
+          <HomeIcon
+            className={classes.iconSize}
+            onClick={() => handleMenuClick("/")}
+          />
+        </IconButton>
+        <Typography variant="h4" color="inherit" className={classes.title}>
+          Home
+        </Typography>
+        <div>
+          {isMobile ? (
+            <>
+              <IconButton
+                edge="start"
+                className={classes.menuButton}
+                color="inherit"
+                aria-label="menu"
+                onClick={handleMenu}
+              >
+                <MenuIcon />
+              </IconButton>
 
-                <Menu
-                  id="menu-appbar"
-                  anchorEl={anchorEl}
-                  anchorOrigin={{
-                    vertical: "top",
-                    horizontal: "right",
-                  }}
-                  keepMounted
-                  transformOrigin={{
-                    vertical: "top",
-                    horizontal: "right",
-                  }}
-                  open={open}
-                  onClose={() => setAnchorEl(null)}
-                >
-                  <MenuItem onClick={() => handleMenuClick("/")}>Home</MenuItem>
-                  <MenuItem onClick={() => handleMenuClick("/about")}>
-                    About
-                  </MenuItem>
-                </Menu>
-              </>
-            ) : (
-              <div className={classes.root}>
-                <Button variant="contained" onClick={() => handleButtonClick('/')}>Home</Button>
-                <Button variant="contained" onClick={() => handleButtonClick('/about')}>About</Button>
-              </div>
-            )}
-          </div>
-        </Toolbar>
-      </AppBar>
+              <Menu
+                id="menu-appbar"
+                anchorEl={anchorEl}
+                anchorOrigin={{
+                  vertical: "top",
+                  horizontal: "right",
+                }}
+                keepMounted
+                transformOrigin={{
+                  vertical: "top",
+                  horizontal: "right",
+                }}
+                open={open}
+                onClose={() => setAnchorEl(null)}
+              >
+                <MenuItem onClick={() => handleMenuClick("/")}>Home</MenuItem>
+                <MenuItem onClick={() => handleMenuClick("/about")}>
+                  About
+                </MenuItem>
+              </Menu>
+            </>
+          ) : (
+            <div className={classes.root}>
+              <Button
+                variant="contained"
+                onClick={() => handleButtonClick("/")}
+              >
+                Home
+              </Button>
+              <Button
+                variant="contained"
+                onClick={() => handleButtonClick("/about")}
+              >
+                About
+              </Button>
+            </div>
+          )}
+        </div>
+      </Toolbar>
+    </AppBar>
   );
 };
 
