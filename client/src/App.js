@@ -1,9 +1,10 @@
-import CssBaseline from "@material-ui/core/CssBaseline";
-import React from "react";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import React from "react"; 
 import About from "./components/About";
 import Navbar from "./components/Navbar";
 import Search from "./components/Search";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+
+import CssBaseline from "@material-ui/core/CssBaseline";
 
 const App = () => {
   return (
@@ -26,6 +27,6 @@ const App = () => {
       </Router>
     </>
   );
-}
+};
 
 export default App;

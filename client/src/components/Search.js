@@ -1,9 +1,10 @@
-import React, { useState } from "react";
 import Axios from "axios";
-import ResultTable from "./ResultTable";
+import React, { useState } from "react";
+
 import { makeStyles } from "@material-ui/core/styles";
 import TextField from "@material-ui/core/TextField";
 import Typography from "@material-ui/core/Typography";
+import ResultTable from "./ResultTable";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -14,13 +15,13 @@ const useStyles = makeStyles((theme) => ({
   },
   container: {
     alignItems: "center",
-    textAlign: "center"
+    textAlign: "center",
   },
   header: {
-    paddingBottom: 15
+    paddingBottom: 15,
   },
   text: {
-    fontSize: 16
+    fontSize: 16,
   },
 }));
 
@@ -65,12 +66,8 @@ const Search = () => {
       {type.length === 0 ? (
         <p className={classes.text}>Type Something to get a result.</p>
       ) : (
-        // info.map((data, index) => <p key={index} className={classes.text}>
-          // {/* {data} */}
-          // </p>)
-          <ResultTable data={info} />
-      )
-    }
+        <ResultTable data={info} /> // search result data is fetched in a seperate component
+      )}
     </div>
   );
 };

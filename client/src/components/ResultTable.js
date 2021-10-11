@@ -1,12 +1,13 @@
-import React from 'react';
-import { makeStyles, withStyles } from '@material-ui/core/styles';
-import Table from '@material-ui/core/Table';
-import TableBody from '@material-ui/core/TableBody';
-import TableCell from '@material-ui/core/TableCell';
-import TableContainer from '@material-ui/core/TableContainer';
-import TableHead from '@material-ui/core/TableHead';
-import TableRow from '@material-ui/core/TableRow';
-import Paper from '@material-ui/core/Paper';
+import React from "react";
+
+import Paper from "@material-ui/core/Paper";
+import { makeStyles, withStyles } from "@material-ui/core/styles";
+import Table from "@material-ui/core/Table";
+import TableBody from "@material-ui/core/TableBody";
+import TableCell from "@material-ui/core/TableCell";
+import TableContainer from "@material-ui/core/TableContainer";
+import TableHead from "@material-ui/core/TableHead";
+import TableRow from "@material-ui/core/TableRow";
 
 const StyledTableCell = withStyles((theme) => ({
   head: {
@@ -21,8 +22,8 @@ const StyledTableCell = withStyles((theme) => ({
 const useStyles = makeStyles({
   container: {
     alignItems: "center",
-    textAlign: "center"
-  }
+    textAlign: "center",
+  },
 });
 
 const ResultTable = (props) => {
@@ -48,6 +49,6 @@ const ResultTable = (props) => {
       </Table>
     </TableContainer>
   );
-}
+};
 
 export default ResultTable;
