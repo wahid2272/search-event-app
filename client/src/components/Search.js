@@ -53,6 +53,7 @@ const Search = () => {
       <Typography variant="h4" color="inherit" className={classes.header}>
         Result:
       </Typography>
+      {console.log(info)}
     </div>
   );
 };
