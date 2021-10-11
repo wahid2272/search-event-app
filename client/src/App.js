@@ -5,7 +5,7 @@ import About from "./components/About";
 import Navbar from "./components/Navbar";
 import Search from "./components/Search";
 
-function App() {
+const App = () => {
   return (
     <>
       <Router>

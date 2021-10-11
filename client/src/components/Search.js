@@ -1,8 +1,9 @@
+import React, { useState } from "react";
+import Axios from "axios";
+import ResultTable from "./ResultTable";
 import { makeStyles } from "@material-ui/core/styles";
 import TextField from "@material-ui/core/TextField";
 import Typography from "@material-ui/core/Typography";
-import Axios from "axios";
-import React, { useState } from "react";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -11,14 +12,22 @@ const useStyles = makeStyles((theme) => ({
       width: "40ch",
     },
   },
+  container: {
+    alignItems: "center",
+    textAlign: "center"
+  },
   header: {
-    paddingLeft: 20,
+    paddingBottom: 15
+  },
+  text: {
+    fontSize: 16
   },
 }));
 
 const Search = () => {
   const classes = useStyles();
   const [info, setInfo] = useState([]);
+  const [type, setType] = useState("");
 
   const handleChange = async (e) => {
     e.preventDefault();
@@ -26,17 +35,15 @@ const Search = () => {
       await Axios.post("http://localhost:3005/search", {
         searchValue: e.target.value,
       })
-        .then(
-          (response) => {
-            setInfo(response.data);
-          }
-        )
-        .then((error) => console.log(error));
+        .then((response) => {
+          setInfo(response.data);
+        })
+        .catch((error) => console.log(error));
     }
   };
 
   return (
-    <div>
+    <div className={classes.container}>
       <form
         className={classes.root}
         noValidate
@@ -48,14 +55,22 @@ const Search = () => {
           label="Search"
           variant="outlined"
           onChange={handleChange}
+          onInput={(e) => setType(e.target.value)}
         />
       </form>
       <Typography variant="h4" color="inherit" className={classes.header}>
         Result:
       </Typography>
-      {info.map((data, index) => (
-        <p key={index}>{data}</p>
-      ))}
+      {/* Result output shown in here */}
+      {type.length === 0 ? (
+        <p className={classes.text}>Type Something to get a result.</p>
+      ) : (
+        // info.map((data, index) => <p key={index} className={classes.text}>
+          // {/* {data} */}
+          // </p>)
+          <ResultTable data={info} />
+      )
+    }
     </div>
   );
 };
