@@ -66,11 +66,8 @@ const Naavbar = (props) => {
   return (
     <AppBar position="static">
       <Toolbar>
-        <IconButton color="inherit">
-          <HomeIcon
-            className={classes.iconSize}
-            onClick={() => handleMenuClick("/")}
-          />
+        <IconButton color="inherit" onClick={() => handleMenuClick("/")}>
+          <HomeIcon className={classes.iconSize} />
         </IconButton>
         <Typography variant="h4" color="inherit" className={classes.title}>
           Home

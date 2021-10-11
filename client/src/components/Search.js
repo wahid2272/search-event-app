@@ -53,7 +53,9 @@ const Search = () => {
       <Typography variant="h4" color="inherit" className={classes.header}>
         Result:
       </Typography>
-      {console.log(info)}
+      {info.map((data, index) => (
+        <p key={index}>{data}</p>
+      ))}
     </div>
   );
 };
