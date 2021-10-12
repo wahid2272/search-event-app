@@ -1,4 +1,4 @@
-# Search Web Application
+# Getting Started with Search Web Application
 
 This is a search web application created with React, Node(express), and Material UI (version 4). User can search any keyword in the browser and result from 2 public API will be displayed in the browser.
 
